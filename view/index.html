@@ -38,126 +38,52 @@
       </div>
     </div>
 
-    <div class="container">
-
-      <!-- begin panel accordian group -->
-      <div class="panel-group" id="accordian" role="tablist" aria-multiselectable="true" id="panel-container">
-
-        <!-- panel separator -->
-        <!-- BEGIN first panel -->
-        <div class="panel panel-success">
-          <!-- BEGIN header -->
-          <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-	      header
-            </h4>
-          </div>
-          <!-- END header -->
-          <!-- BEGIN body -->
-          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
-	      blsdksjf
-            </div>
-          </div>
-          <!-- END body -->
-        </div>
-        <!-- END first panel -->
-
-        <!-- --- --- --- --- PANEL SEPARATOR --- --- --- -->
-
-        <!-- BEGIN second panel -->
-        <div class="panel panel-success">
-          <!-- BEGIN header -->
-          <div class="panel-heading" role="tab" id="headingTwo">
-            <h4 class="panel-title">
-              <!-- <a data-toggle="collapse" data-parent="#accordian" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> -->
-	      <!-- 	{{title}} -->
-              <!-- </a> -->
-	      header
-            </h4>
-          </div>
-          <!-- END header -->
-          <!-- BEGIN body -->
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
-	      blsdksjf
-            </div>
-          </div>
-          <!-- END body -->
-        </div>
-        <!-- END second panel -->
-
-
-
-
-
-
-
-
-
-      </div>
+    <!-- begin panel accordian group -->
+    <div class="panel-group" id="accordian" role="tablist" aria-multiselectable="true">
     </div>
 
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="panel panel-success">
+        <!-- BEGIN header -->
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            {{title}} - {{owner}}
+          </h4>
+        </div>
+        <!-- END header -->
+        <!-- BEGIN body -->
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <h4>Notes</h4>
 
-      <!--   <div class="panel panel-default"> -->
-      <!--     <div class="panel-heading" role="tab" id="headingThree"> -->
-      <!--       <h4 class="panel-title"> -->
-      <!--         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> -->
-      <!-- 		{{title}} -->
-      <!--         </a> -->
-      <!--       </h4> -->
-      <!--     </div> -->
-      <!--     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree"> -->
-      <!--       <div class="panel-body"> -->
-      <!-- 	      <h6>Notes</h6> -->
-      <!-- 	      <ul> -->
-      <!-- 		<li>foo bar frobnicate</li> -->
-      <!-- 		<li>foo bar frobnicate</li> -->
-      <!-- 		<li>foo bar frobnicate</li> -->
-      <!-- 	      </ul> -->
-
-      <!-- 	      <h6>Commands</h6> -->
-
-      <!-- 	      <pre> curl -v -u tbielawa: --data '{"foo": "bar"}' https://releases.prod.inception.redhat.com/api/v1/playbook/wf9080930948520984093/deployment</pre> -->
-
-      <!-- 	      <h6>References</h6> -->
-      <!-- 	      <ul class="list-inline"> -->
-      <!-- 		<li><a href="{{reference.href}}">{{reference.title}}</a></li> -->
-      <!-- 		<li><a href="{{reference.href}}">{{reference.title}}</a></li> -->
-      <!-- 		<li><a href="{{reference.href}}">{{reference.title}}</a></li> -->
-      <!-- 		<li><a href="{{reference.href}}">{{reference.title}}</a></li> -->
-      <!-- 	      </ul> -->
-      <!--       </div> -->
-      <!--     </div> -->
-      <!--   </div> -->
+            <ul class="notes_list">
+              {{#each notes}}
+              <li>{{this}}</li>
+              {{/each}}
+            </ul>
 
 
-      <!-- </div> -->
-      <!-- <\!-- END the panel accordian group -\-> -->
+            <h4>Commands</h4>
+            <textarea class="form-control" rows="1">curl -v -u tbielawa: --data '{"foo": "bar"}' https://releases.prod.inception.redhat.com/api/v1/playbook/wf9080930948520984093/deployment</textarea>
 
-    <!--   <footer> -->
-    <!--     <p>&copy; Tim Bielawa 2014</p> -->
-    <!--   </footer> -->
-    <!-- </div> -->
-    <!-- /container -->
+            <h4>References</h4>
 
-
-
-
-
-
-
-
-
-
-
-
-
+            <ul class="references_list">
+              {{#each references}}
+              <li><a href="{{href}}">{{title}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <!-- END body -->
+      </div>
+    </script>
 
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/demoscripter.js"></script>
+
     <script src="js/handlebars.js"></script>
   </body>
 </html>

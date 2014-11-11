@@ -13,17 +13,30 @@ function fetch_demo_script() {
             set_site_document_title(json.title);
             set_body_title(json.date + " - " + json.title);
             set_date_string(json.date);
-	    // add_panels(json.steps);
-            console.log(json);
+            append_steps(json.steps);
         }
+    });
+}
+
+
+function append_steps(steps){
+    $.each(steps, function(k, v) {
+        var source   = $("#entry-template").html();
+        var template = Handlebars.compile(source);
+        var context = v;
+        var html    = template(context);
+        $('#accordian').append(html);
+        console.log("Appended another container");
+        console.log(html);
     });
 }
 
 function add_panels(json) {
     console.log("Adding " + json.length.toString() + " panels");
     $.each(json, function(index, value) {
-	var new_panel = $('#template_panel').clone().show();
-	$('#panel-container').append(new_panel);
+        var new_panel = $('#template_panel').clone().show();
+        $('#panel-container').append(new_panel);
+        console.log("Appended another container");
     });
 }
 
@@ -33,7 +46,7 @@ function set_site_document_title(title) {
     document.title = title;
 }
 function set_body_title(title) {
-    $('#demo-title').html(title)
+    $('#demo-title').html(title);
 }
 function set_date_string(demo_date) {
     $('#nav-date').html(demo_date);
@@ -41,23 +54,20 @@ function set_date_string(demo_date) {
 
 
 $( document ).ready(function() {
-    console.log( "ready!" );
     fetch_demo_script();
-    console.log("Fetched demo script");
 
-    $(".btn").click(function(){
-	console.log("Clicked button");
-        $("#collapseOne").collapse({
-	    "toggle": true,
-	    "parent": '#accordian'
-	});
-	console.log("Finished Clicked button");
-    });
+    // $(".btn").click(function(){
+    //     $("#collapseOne").collapse({
+    //      "toggle": true,
+    //      "parent": '#accordian'
+    //  });
+    // });
 
     $(".panel-heading").click(function(){
-	console.log("trying to collapse from clicking a bar");
-	$(( this )).next().collapse('toggle');
+        console.log("trying to collapse from clicking a bar");
+        $(( this )).next().collapse('toggle');
     });
+
 
 
 });
