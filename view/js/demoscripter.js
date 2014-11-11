@@ -20,23 +20,16 @@ function fetch_demo_script() {
 
 
 function append_steps(steps){
-    $.each(steps, function(k, v) {
-        var source   = $("#entry-template").html();
-        var template = Handlebars.compile(source);
-        var context = v;
-        var html    = template(context);
-        $('#accordian').append(html);
-        console.log("Appended another container");
-        console.log(html);
-    });
-}
+    var source   = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+    var context = {'steps': steps};
+    var html    = template(context);
+    $('#accordian').append(html);
+    console.log("Appended another container");
 
-function add_panels(json) {
-    console.log("Adding " + json.length.toString() + " panels");
-    $.each(json, function(index, value) {
-        var new_panel = $('#template_panel').clone().show();
-        $('#panel-container').append(new_panel);
-        console.log("Appended another container");
+    $(".panel-heading").click(function(){
+        console.log("trying to collapse from clicking a bar");
+        $(( this )).next().collapse('toggle');
     });
 }
 
@@ -63,10 +56,6 @@ $( document ).ready(function() {
     //  });
     // });
 
-    $(".panel-heading").click(function(){
-        console.log("trying to collapse from clicking a bar");
-        $(( this )).next().collapse('toggle');
-    });
 
 
 

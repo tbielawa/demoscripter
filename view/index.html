@@ -35,24 +35,28 @@
         <h1 id="demo-title">Tim Bielawa</h1>
         <p>Ideally we would describe the overall theme of the demo here...</p>
         <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+
       </div>
     </div>
 
-    <!-- begin panel accordian group -->
-    <div class="panel-group" id="accordian" role="tablist" aria-multiselectable="true">
+    <div class="container">
+      <!-- begin panel accordian group -->
+      <div class="panel-group" id="accordian" role="tablist" aria-multiselectable="true">
+      </div>
     </div>
 
     <script id="entry-template" type="text/x-handlebars-template">
+      {{#each steps}}
       <div class="panel panel-success">
         <!-- BEGIN header -->
-        <div class="panel-heading" role="tab" id="headingOne">
+        <div class="panel-heading" role="tab" id="heading{{@index}}">
           <h4 class="panel-title">
             {{title}} - {{owner}}
           </h4>
         </div>
         <!-- END header -->
         <!-- BEGIN body -->
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="collapse{{@index}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{@index}}">
           <div class="panel-body">
             <h4>Notes</h4>
 
@@ -77,13 +81,13 @@
         </div>
         <!-- END body -->
       </div>
+      {{/each}}
     </script>
 
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/demoscripter.js"></script>
-
     <script src="js/handlebars.js"></script>
   </body>
 </html>
