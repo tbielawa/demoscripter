@@ -1,0 +1,39 @@
+{
+    "title": "Beryllium Release",
+    "date": "2014-11-11",
+    "steps": [
+	{
+	    "owner": "Jen",
+	    "title": "Introduction",
+	    "notes": [
+		"Work Overview",
+		"Workers",
+		"Security Vulnerabilties",
+		"SSL All things!"
+	    ]
+	},
+
+	{
+	    "owner": "Ryan",
+	    "title": "Details",
+	    "notes": [
+		"Security Vulnerabilities",
+		"Poodle",
+		"Bash",
+		"SSL All The Things"
+	    ]
+	},
+
+	{
+	    "owner": "Ryan",
+	    "title": "Fileops Worker Demo",
+	    "references": {
+		"Fileops Worker Docs": "http://release-engine.readthedocs.org/en/latest/worker-steps.html#fileops"
+	    },
+	    "notes": [
+		"Supported Options",
+		"Why it exists"
+	    ]
+	}
+    ]
+}

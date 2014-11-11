@@ -1,0 +1,66 @@
+
+
+############################################3
+tblabla - gitworker && sat5 worker
+
+Pre-playbook review. Will be demonstrating git worker and sat5 worker.
+
+~~~~~~~~~~~~~~~~~~~~
+Show initial state of:
+Gitworkertest repository
+Satellite source/dest channel (inception-test0[12])
+
+gitworkertest
+git clone ssh://gitolite.corp.redhat.com/it-ops/inception/gitworkertest.git
+cd gitworkertest
+git log --stat -1
+note the last file added
+
+Satellite 5
+run the
+
+~~~~~~~~~~~~~~~~~~~~
+
+git pull origin master
+git log --stat -1
+Run Playbook
+git pull origin master
+git log --stat -2
+
+PB#1.b Sat-5-Worker (Tblabla)
+Run list_channel_contents.py
+Demostrates source ch.contents & dest ch.emptyness
+Run PB - Point out dynamic args
+promote{to,from}_label
+Run list-channel-contents.py
+
+
+############################################3
+
+
+PB#2 SQL-Worker (ashcrow)
+Show docs and explain db agnostic
+http://release-engine.readthedocs.org/en/latest/worker-steps.html#sql
+go to db. show its empty
+run playbook that creates a schema
+Does an insert
+go to db show its not empty
+table and schema (go to worker homedir. "sqlite test.db". Then run ".schema". Yes. dot schema.)
+data (with sqlite open run "SELECT * FROM myTable")
+
+Service Now Chg Record Creator (Tblabla)
+We committed to automatiically creating CHG via API
+3 youtube tutorials later we figured out how
+created "import set table" transformation maps
+imported 1 record from CSV-Vicotry
+tried to reproduce w/ Rest API & 1 new chg record
+800, 1200, 17000, 28000 around 50000 failed record import realized we sent SN QA into infinite loop
+Met/Meeting with Service Now team to review our integration
+Results
+
+Misc Closing (turtle)
+Func workers hw running on a dedicated system
+No more charged func nushus host
+Dockerize Monog/rabbit
+same level portability as recore/rerest/reworker(Deployment consitent)
+better utilization of AWS resources $376 per month
