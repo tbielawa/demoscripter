@@ -36,7 +36,10 @@
             "notes": [
                 "Supported Options",
                 "Why it exists"
-            ]
+            ],
+	    "commands": [
+		"curl -v -u tbielawa: --data '{\"foo\": '\"bar\"}' https://releases.prod.inception.redhat.com/api/v1/playbook/wf9080930948520984093/deployment"
+	    ]
         }
     ]
 }
